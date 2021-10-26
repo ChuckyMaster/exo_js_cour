@@ -30,6 +30,8 @@ function display() {
   return ` Il ya ${list.length} produits dans la liste.`;
 }
 
+const localeString = list.toLocaleString("patate");
+
 addItem("patate");
 addItem("ravioli");
 addItem("concombre amer");
