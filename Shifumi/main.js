@@ -26,22 +26,22 @@ computer = pfc[randompfc];
 console.log(computer);
 
 if (urChoice === computer) {
-  resultat = "égalité";
+  document.querySelector("#content").innerHTML += ` <p>"Egalité!!" </p>`;
 } else if (
   (urChoice === "ciseaux" && computer === "pierre") ||
   (urChoice === "pierre" && computer === "feuille")
 ) {
-  resultat = "vous avez perdu";
+  document.querySelector(
+    "#content"
+  ).innerHTML += ` <p>"vous avez perdu!!" </p>`;
 } else
   (urChoice === "ciseaux" && computer === "feuille") ||
     (urChoice === "feuille" && computer === "pierre") ||
     (urChoice === "pierre" && computer === "ciseaux");
 {
-  resultat = "Vous gagnez!!";
+  document.querySelector("#content").innerHTML += ` <p>"Vous gagnez!!" </p>`;
 }
 
 document.querySelector(
   "#content"
-).innerHTML += ` vous avez choisi  <img src="./img/${urChoice}.png" alt="ta choisi ca"> <br>  le pc à choisi  <img src="./img/${computer}.png" alt="ta choisi ca" <br> <stron> <p> ${resultat} </p> </strong> `;
-
-console.log(resultat);
+).innerHTML += ` vous avez choisi  <img src="./img/${urChoice}.png" alt="ta choisi ca"> <br>  le pc à choisi  <img src="./img/${computer}.png" alt="ta choisi ca" > `;
