@@ -3,7 +3,7 @@
 let voiture = {
   marque: "Renault Twingo 3",
   annee: 2014,
-  dateAchat: "2014-07-31",
+  dateAchat: new Date("2014-07-31"),
   passagers: ["Audrey", "Gribouille"],
 };
 
@@ -13,8 +13,14 @@ document.querySelector(
 <li> Marque: ${voiture.marque}</li>
 <li> Année de production: ${voiture.annee}</li>
 <li>  Date de l'achat: ${voiture.dateAchat}</li>
-<li> Passagers: <ul>
-<li>${voiture.passagers[0]} </li>
-<li>${voiture.passagers[1]} </li>
- </li></ul>
+ <li> Passagers:  <ol>
+<li>
+            </li></ol>
 </ul> </p>`;
+
+//  liste passager
+
+// let list = "";
+// voiture.passager.forEach(function (passager, index) {
+//   list += `<li>{passager} </li>`;
+// });
