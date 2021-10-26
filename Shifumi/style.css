@@ -34,3 +34,7 @@ ul li img {
 .btn:hover {
   background-color: black;
 }
+
+img {
+  width: 150px;
+}
