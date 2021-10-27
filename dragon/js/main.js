@@ -3,24 +3,15 @@
 //VARIABLES
 
 let game = new Object();
-game.hpDragon;
-game.hpChevalier;
+// game.hpDragon;
+// game.hpChevalier;
+
 game.armes;
 game.armure;
+
 game.difficulty;
 
-// hpDragon -= getRandom(25, 30) * armure
-
-// function randomPlayer(player1, player2) {
-//   let random = Math.floor(Math.random()) * 2;
-//   if ((random = 1)) {
-//     player2.life - player1.attack;
-//   } else {
-//     player1.life - player2.attack;
-//   }
-//   console.log(random);
-//   return;
-// }
+// FONCTION
 
 //PRINCIPAL
 
@@ -43,75 +34,22 @@ game.armes = requestInteger(
   3
 );
 
-attackFromChevalier(game.armes, game.hpDragon);
-attackFromDragon(game.armure, game.hpChevalier);
+game = initializeGame(game.difficulty, game.armure, game.armes);
 
-console.log("vous avez choisi la difficulté", game.difficulty);
-console.log("vous avez choisi ", game.armure, " comme armure");
-console.log("vous avez choisi ", game.armes, "comme arme");
+// attackFromChevalier(game.armes, game.hpDragon);
+// attackFromDragon(game.armure, game.hpChevalier);
 
-switch (game.difficulty) {
-  case 1:
-    console.log(
-      "Le dragon a",
-      (game.hpDragon = getRandom(150, 250)),
-      " Points de vie"
-    );
-    console.log(
-      "vous avez",
-      (game.hpChevalier = getRandom(200, 250)),
-      "point de vie"
-    );
+// console.log("vous avez choisi la difficulté", game.difficulty);
+// console.log("vous avez ce buff ", game.armure, "en armure");
+// console.log("vous avez choisi ", game.armes, "comme arme");
 
-    break;
-
-  case 2:
-    console.log(
-      "Le dragon a",
-      (game.hpDragon = getRandom(200, 250)),
-      " Points de vie"
-    );
-    console.log(
-      "vous avez",
-      (game.hpChevalier = getRandom(200, 250)),
-      "point de vie"
-    );
-
-    break;
-
-  case 3:
-    console.log(
-      "Le dragon a",
-      (game.hpDragon = getRandom(200, 250)),
-      " Points de vie"
-    );
-    console.log(
-      "vous avez",
-      (game.hpChevalier = getRandom(150, 200)),
-      "point de vie"
-    );
-    break;
-}
-
-switch (game.armes) {
-  case 1:
-    console.log((game.armes = 0.5));
-    break;
-
-  case 3:
-    console.log((game.armes = 0.5));
-    break;
-}
-
-switch (game.armure) {
-  case 2:
-    console.log((game.armure = 0.25));
-    break;
-
-  case 3:
-    console.log((game.armure = 0.5));
-    break;
-}
+console.log(
+  "le chevalier a",
+  game.hpChevalier,
+  " Points de vie le dragon a",
+  game.hpDragon,
+  " points de vie"
+);
 
 // do {} while (game.hpChevalier > 0 && game.hpDragon > 0);
 
