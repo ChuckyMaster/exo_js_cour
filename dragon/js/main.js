@@ -2,100 +2,121 @@
 
 //VARIABLES
 
-let difficulty, armes, armure;
-let dragon = new Object();
-dragon.life = 0;
-dragon.attack = 0;
+let game = new Object();
+game.hpDragon;
+game.hpChevalier;
+game.armes;
+game.armure;
+game.difficulty;
 
-1;
-let chevalier = new Object();
-chevalier.life = 0;
-chevalier.weapon = "";
-chevalier.armor = "";
-chevalier.attack = 0;
+// hpDragon -= getRandom(25, 30) * armure
 
-/**
- * @param {int} min 
- @param {int} max
- @return a value between min max
- * 
- */
-
-//FONCTIONS
-
-function getRandom(min, max) {
-  let number = min + Math.floor(Math.random()) * (max - min);
-  return number;
-}
-
-function randomPlayer(player1, player2) {
-  let random = Math.floor(Math.random()) * 2;
-  if ((random = 1)) {
-    player2.life - player1.attack;
-  } else {
-    player1.life - player2.attack;
-  }
-}
+// function randomPlayer(player1, player2) {
+//   let random = Math.floor(Math.random()) * 2;
+//   if ((random = 1)) {
+//     player2.life - player1.attack;
+//   } else {
+//     player1.life - player2.attack;
+//   }
+//   console.log(random);
+//   return;
+// }
 
 //PRINCIPAL
 
-do {
-  difficulty = parseInt(
-    prompt("choisissez une difficult? 1.Facile - 2.Normal - 3.Difficile ")
-  );
-} while (difficulty !== 1 && difficulty !== 2 && difficulty !== 3);
+// appel aux fonctions
+game.difficulty = requestInteger(
+  "Choisissez le difficulté: n/ 1-facile 2-moyen 3-difficile",
+  1,
+  3
+);
 
-do {
-  armes = parseInt(prompt("Choisissez une épée: 1.bois - 2.Acier 3.Excalibur"));
-} while (armes !== 1 && armes !== 2 && armes !== 3);
+game.armure = requestInteger(
+  "Choisissez votre armure: \n 1-cuivre 2-fer 3-magique ",
+  1,
+  3
+);
 
-do {
-  armure = parseInt(
-    prompt("Choisissez une armure: 1.Cuivre - 2.Fer - 3.magique")
-  );
-} while (armure !== 1 && armure !== 2 && armure !== 3);
+game.armes = requestInteger(
+  "Choisissez votre arme: \n 1-bois 2-acier 3-Excalibur",
+  1,
+  3
+);
 
-switch (difficulty) {
+attackFromChevalier(game.armes, game.hpDragon);
+attackFromDragon(game.armure, game.hpChevalier);
+
+console.log("vous avez choisi la difficulté", game.difficulty);
+console.log("vous avez choisi ", game.armure, " comme armure");
+console.log("vous avez choisi ", game.armes, "comme arme");
+
+switch (game.difficulty) {
   case 1:
-    console.log((dragon.life = getRandom(150, 250)));
-    console.log((chevalier.life = getRandom(200, 250)));
-    console.log((chevalier.attack = getRandom(25, 30)));
+    console.log(
+      "Le dragon a",
+      (game.hpDragon = getRandom(150, 250)),
+      " Points de vie"
+    );
+    console.log(
+      "vous avez",
+      (game.hpChevalier = getRandom(200, 250)),
+      "point de vie"
+    );
 
     break;
 
   case 2:
-    console.log((dragon.life = getRandom(200, 250)));
-    console.log((chevalier.life = getRandom(200, 250)));
-    console.log((dragon.attack = getRandom(15, 20)));
+    console.log(
+      "Le dragon a",
+      (game.hpDragon = getRandom(200, 250)),
+      " Points de vie"
+    );
+    console.log(
+      "vous avez",
+      (game.hpChevalier = getRandom(200, 250)),
+      "point de vie"
+    );
+
     break;
 
   case 3:
-    console.log((dragon.life = getRandom(200, 250)));
-    console.log((chevalier.life = getRandom(150, 200)));
-    console.log((dragon.attack = getRandom(5, 10)));
+    console.log(
+      "Le dragon a",
+      (game.hpDragon = getRandom(200, 250)),
+      " Points de vie"
+    );
+    console.log(
+      "vous avez",
+      (game.hpChevalier = getRandom(150, 200)),
+      "point de vie"
+    );
     break;
 }
 
-switch (armes) {
+switch (game.armes) {
   case 1:
-    console.log((chevalier.attack = -0.5));
+    console.log((game.armes = 0.5));
     break;
 
   case 3:
-    console.log((chevalier.attack = 0.5));
+    console.log((game.armes = 0.5));
     break;
 }
 
-switch (armure) {
+switch (game.armure) {
   case 2:
-    console.log((dragon.attack = -0.25));
+    console.log((game.armure = 0.25));
     break;
 
   case 3:
-    console.log((dragon.attack = -0.5));
+    console.log((game.armure = 0.5));
     break;
 }
 
-do {
-  randomPlayer(chevalier, dragon);
-} while (chevalier.life > 0 || dragon.life > 0);
+// do {} while (game.hpChevalier > 0 && game.hpDragon > 0);
+
+// TEST DE LA FONCTION REQUESTION
+// console.log(
+//   "question difficulté",
+//   requestInteger("tu veux cb entre 5 balle et 8 balles", 5, 8)
+// );
