@@ -8,8 +8,9 @@ let game = new Object();
 
 game.armes;
 game.armure;
-
 game.difficulty;
+game.chevDammage;
+game.dragDammage;
 
 // FONCTION
 
@@ -35,9 +36,9 @@ game.armes = requestInteger(
 );
 
 game = initializeGame(game.difficulty, game.armure, game.armes);
-
-// attackFromChevalier(game.armes, game.hpDragon);
-// attackFromDragon(game.armure, game.hpChevalier);
+gameLoop();
+attackFromChevalier();
+attackFromDragon();
 
 // console.log("vous avez choisi la difficulté", game.difficulty);
 // console.log("vous avez ce buff ", game.armure, "en armure");
@@ -50,6 +51,9 @@ console.log(
   game.hpDragon,
   " points de vie"
 );
+
+// attackFromDragon(game.difficulty, game.dragDammage, game.armure);
+// attackFromChevalier(game.difficulty, game.chevDammage, game.armes);
 
 // do {} while (game.hpChevalier > 0 && game.hpDragon > 0);
 
