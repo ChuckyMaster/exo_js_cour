@@ -1,7 +1,7 @@
 "use strict";
 
 //VARIABLES
-
+const btn = document.getElementById("btn");
 let game = new Object();
 
 game.armes;
@@ -11,6 +11,10 @@ game.chevDammage;
 game.dragDammage;
 
 //FONCTIONS
+
+btn.addEventListener("click", function () {
+  gameStart();
+});
 
 function initializeGame() {
   switch (game.difficulty) {
@@ -154,12 +158,12 @@ function showGameWinner() {
   if (game.hpChevalier <= 0) {
     inner.insertAdjacentHTML(
       "beforebegin",
-      ` <article><p>le gagnant est: LE DRAGON  </p> <img  src="./img/dragon.png" alt=""> </p>`
+      ` <article><p>le gagnant est: DRAGON  </p> <img  src="./img/dragon.png" alt=""> </p>`
     );
   } else {
     inner.insertAdjacentHTML(
       "beforebegin",
-      ` <article> <p>le gagnant est: LE DRAGON </p> <img  src="./img/knight.png" alt=""> `
+      ` <article> <p>le gagnant est: CHEVALIER </p> <img  src="./img/knight.png" alt=""> `
     );
   }
 
@@ -193,8 +197,6 @@ function attackFromChevalier() {
 //PRINCIPAL
 
 // appel aux fonctions
-
-gameStart();
 
 console.log(
   "le chevalier a",

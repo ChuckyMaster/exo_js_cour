@@ -32,3 +32,11 @@ article {
   max-width: 500px;
   border: 10px white outset;
 }
+
+.btn {
+  padding: 15px;
+  background-color: #f3f5;
+  width: 150px;
+  text-align: center;
+  cursor: pointer;
+}
